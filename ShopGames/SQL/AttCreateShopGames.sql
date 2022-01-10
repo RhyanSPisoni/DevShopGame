@@ -1,3 +1,5 @@
+--SQL Server
+
 CREATE TABLE [Client] (
 	id_client integer NOT NULL IDENTITY(1,1),
 	nm_client varchar(100) NOT NULL,
