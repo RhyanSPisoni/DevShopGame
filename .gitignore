@@ -121,3 +121,4 @@ ShopGames/bin/Debug/net5.0/publish/runtimes/win-x86/native/Microsoft.Data.SqlCli
 ShopGames/bin/Debug/net5.0/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
 ShopGames/obj/Debug/net5.0/PublishOutputs.dd40c2b068.txt
 ShopGames/obj/Debug/net5.0/ShopGames.deps.json
+ShopGames/appsettings.json
