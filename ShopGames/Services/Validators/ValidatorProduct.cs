@@ -8,7 +8,7 @@ namespace ShopGames.Services.Validators
 {
     public class ValidatorProduct
     {
-        public static void DuplicateProductNew(ProductView Prod)
+        public static void DuplicateProductNew(Product Prod)
         {
             using (var Db = new ShopGamesContext())
             {

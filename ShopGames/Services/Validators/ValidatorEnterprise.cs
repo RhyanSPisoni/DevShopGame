@@ -11,7 +11,7 @@ namespace ShopGames.Services.Validators
 {
     public class ValidatorEnterprise
     {
-        public static void DuplicateEnterpriseNew(EnterpriseView Ent)
+        public static void DuplicateEnterpriseNew(Enterprise Ent)
         {
             using (var Db = new ShopGamesContext())
             {

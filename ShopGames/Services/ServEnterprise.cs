@@ -36,13 +36,8 @@ namespace ShopGames.Services
         {
             try
             {
-                var EntV = (new EnterpriseView
-                {
-                    IdEnterprise = Ent.IdEnterprise,
-                    NmEnterprise = Ent.NmEnterprise
-                });
 
-                ValidatorEnterprise.DuplicateEnterpriseNew(EntV);
+                ValidatorEnterprise.DuplicateEnterpriseNew(Ent);
 
                 await using (var Db = new ShopGamesContext())
                 {
@@ -50,6 +45,11 @@ namespace ShopGames.Services
                     await Db.SaveChangesAsync();
                 }
 
+                var EntV = (new EnterpriseView
+                {
+                    IdEnterprise = Ent.IdEnterprise,
+                    NmEnterprise = Ent.NmEnterprise
+                });
 
                 return EntV;
 

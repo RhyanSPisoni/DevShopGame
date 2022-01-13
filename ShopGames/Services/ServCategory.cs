@@ -28,7 +28,7 @@ namespace ShopGames.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Erro ao mostrar lista de Empresas: {e}");
+                throw new Exception($"Erro ao tentar mostrar lista de Empresas: {e}");
             }
         }
 

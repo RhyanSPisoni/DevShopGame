@@ -8,7 +8,7 @@ namespace ShopGames.Services.Validators
 {
     public class ValidatorSystemReq
     {
-        public static void DuplicateSystemReqNew(SystemReqView Sys)
+        public static void DuplicateSystemReqNew(SystemRequirement Sys)
         {
             using (var Db = new ShopGamesContext())
             {
