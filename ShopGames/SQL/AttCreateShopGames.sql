@@ -20,7 +20,7 @@ CREATE TABLE [Library_User] (
 	id_library integer NOT NULL IDENTITY(1,1),
 	id_client integer NOT NULL,
 	id_product integer NOT NULL,
-	dt_registration timestamp NOT NULL,
+	dt_registration datetime NOT NULL,
   CONSTRAINT [PK_LIBRARY_USER] PRIMARY KEY CLUSTERED
   (
   [id_library] ASC
