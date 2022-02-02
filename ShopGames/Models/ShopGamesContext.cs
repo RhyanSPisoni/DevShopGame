@@ -149,8 +149,7 @@ namespace ShopGames.Models
 
                 entity.Property(e => e.DtRegistration)
                     .IsRequired()
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime")
                     .HasColumnName("dt_registration");
 
                 entity.Property(e => e.IdClient).HasColumnName("id_client");
