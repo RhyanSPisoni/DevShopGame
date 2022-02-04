@@ -13,7 +13,6 @@ CREATE TABLE [Client] (
   (
   [id_client] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
-
 )
 GO
 CREATE TABLE [Library_User] (
@@ -25,7 +24,6 @@ CREATE TABLE [Library_User] (
   (
   [id_library] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
-
 )
 GO
 CREATE TABLE [Product] (
@@ -45,7 +43,6 @@ CREATE TABLE [Product] (
   (
   [id_product] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
-
 )
 GO
 CREATE TABLE [System_Requirement] (
@@ -56,7 +53,6 @@ CREATE TABLE [System_Requirement] (
   (
   [id_system_requirement] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
-
 )
 GO
 CREATE TABLE [Product_System_Req] (
@@ -67,7 +63,6 @@ CREATE TABLE [Product_System_Req] (
   (
   [id_product_system_req] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
-
 )
 GO
 CREATE TABLE [Enterprise] (
@@ -78,7 +73,6 @@ CREATE TABLE [Enterprise] (
   (
   [id_enterprise] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
-
 )
 GO
 CREATE TABLE [Shopping_Cart] (
@@ -90,7 +84,6 @@ CREATE TABLE [Shopping_Cart] (
   (
   [id_shop] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
-
 )
 GO
 CREATE TABLE [Category] (
