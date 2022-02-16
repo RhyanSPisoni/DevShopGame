@@ -28,41 +28,44 @@ namespace ShopGames.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Erro ao tentar mostrar lista de Empresas: {e}");
+                throw new Exception($"Erro ao tentar mostrar lista de Empresas: {e.Message}");
             }
         }
 
-        public static async void Post(Category Cat)
+        public static async void Post(Category cat)
         {
             try
             {
-                ValidatorCategory.DuplicateCategoryNew(Cat);
+                ValidatorCategory.EmptyOrNullCategory(cat);
+                ValidatorCategory.DuplicateCategoryNew(cat);
 
                 await using (var Db = new ShopGamesContext())
                 {
-                    await Db.Categories.AddAsync(Cat);
+                    await Db.Categories.AddAsync(cat);
                     await Db.SaveChangesAsync();
                 }
             }
             catch (Exception e)
             {
-                throw new Exception($"Erro ao inserir uma Categoria: {e}");
+                throw new Exception($"Erro ao inserir uma Categoria: {e.Message}");
             }
         }
 
-        public static async void Patch(Category Cat)
+        public static async void Patch(Category cat)
         {
             try
             {
+                ValidatorCategory.EmptyOrNullCategory(cat);
+
                 await using (var Db = new ShopGamesContext())
                 {
-                    Db.Categories.Update(Cat);
+                    Db.Categories.Update(cat);
                     await Db.SaveChangesAsync();
                 }
             }
             catch (Exception e)
             {
-                throw new Exception($"Erro ao alterar uma Empresa: {e}");
+                throw new Exception($"Erro ao tentar alterar uma Categoria: {e.Message}");
             }
         }
 

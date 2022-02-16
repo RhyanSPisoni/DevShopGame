@@ -15,6 +15,9 @@ namespace ShopGames.Services.Validators
         {
             using (var Db = new ShopGamesContext())
             {
+                if (Ent.NmEnterprise.Trim() == "" || Ent.NmEnterprise == null)
+                    throw new Exception("Insira um nome de Empresa!");
+
                 var duplicado = Db.Enterprises.AsNoTracking().FirstOrDefault(x => x.NmEnterprise == Ent.NmEnterprise);
 
                 if (duplicado != null)

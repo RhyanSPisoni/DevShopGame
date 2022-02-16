@@ -8,14 +8,20 @@ namespace ShopGames.Services.Validators
 {
     public class ValidatorCategory
     {
-        public static void DuplicateCategoryNew(Category Cat)
+        public static void EmptyOrNullCategory(Category cat)
+        {
+            if (cat.NmCategory.Trim() == "" || cat.NmCategory == null)
+                throw new Exception("Insira um nome para Categoria!");
+        }
+
+        public static void DuplicateCategoryNew(Category cat)
         {
             using (var Db = new ShopGamesContext())
             {
-                var duplicado = Db.Categories.AsNoTracking().FirstOrDefault(x => x.NmCategory == Cat.NmCategory);
+                var duplicado = Db.Categories.AsNoTracking().FirstOrDefault(x => x.NmCategory.Trim() == cat.NmCategory.Trim());
 
                 if (duplicado != null)
-                    throw new Exception("Existe duplicidade de Empresas");
+                    throw new Exception("Existe duplicidade de Categoria");
             }
         }
     }
