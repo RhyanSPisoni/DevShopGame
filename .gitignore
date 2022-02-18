@@ -124,3 +124,4 @@ ShopGames/obj/Debug/net5.0/ShopGames.deps.json
 ShopGames/appsettings.json
 ShopGames/.vscode/launch.json
 ShopGames/.vscode/tasks.json
+ShopGames/bin/Debug/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
