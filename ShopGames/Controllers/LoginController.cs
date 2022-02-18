@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ShopGames.Controllers
 {
+    [ApiController]
+    [Route("Login")]
     public class LoginController : ControllerBase
     {
         [HttpGet]

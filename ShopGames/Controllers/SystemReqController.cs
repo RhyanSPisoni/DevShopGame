@@ -22,7 +22,7 @@ namespace ShopGames.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception($"{e}");
+                throw new Exception(e.Message);
             }
         }
 
@@ -35,7 +35,7 @@ namespace ShopGames.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception($"{e}");
+                throw new Exception(e.Message);
             }
         }
 
@@ -49,7 +49,7 @@ namespace ShopGames.Controllers
             catch (Exception e)
             {
 
-                throw new Exception($"{e}");
+                throw new Exception(e.Message);
             }
         }
     }
