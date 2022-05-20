@@ -31,7 +31,7 @@ namespace ShopGames.Controllers
         {
             try
             {
-                Services.ServSystemReq.Post(systemReq);
+                // Services.ServSystemReq.Post(systemReq);
             }
             catch (Exception e)
             {
