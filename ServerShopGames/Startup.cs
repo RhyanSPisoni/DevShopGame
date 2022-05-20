@@ -39,7 +39,7 @@ namespace ShopGames
                     builder =>
                     {
                         builder
-                            .WithOrigins("https://192.168.1.134:5001")
+                            .WithOrigins("localhost")
                             .AllowAnyHeader()
                             .AllowCredentials()
                             .AllowAnyMethod();

@@ -27,11 +27,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Product prod)
+        public Task<ProductView> Post([FromBody] Product prod)
         {
             try
             {
-                Services.ServProduct.Post(prod);
+                return Services.ServProduct.Post(prod);
             }
             catch (Exception e)
             {

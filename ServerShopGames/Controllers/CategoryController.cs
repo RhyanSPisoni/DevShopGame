@@ -14,11 +14,11 @@ namespace ShopGames.Controllers
     public class CategoryController : ControllerBase
     {
         [HttpGet]
-        public Task<List<CategoryView>> Get()
+        public Task<List<CategoryView>> SearchCategories()
         {
             try
             {
-                return Services.ServCategory.Get();
+                return Services.ServCategory.SearchCategories();
             }
             catch (Exception e)
             {
@@ -27,11 +27,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Category Cat)
+        public void NewCategory([FromBody] Category Cat)
         {
             try
             {
-                Services.ServCategory.Post(Cat);
+                Services.ServCategory.NewCategory(Cat);
             }
             catch (Exception e)
             {
@@ -40,15 +40,14 @@ namespace ShopGames.Controllers
         }
 
         [HttpPatch]
-        public void Patch([FromBody] Category Cat)
+        public Task<CategoryView> ChangeCategory([FromBody] Category Cat)
         {
             try
             {
-                Services.ServCategory.Patch(Cat);
+                return Services.ServCategory.ChangeCategory(Cat);
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
         }

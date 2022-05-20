@@ -11,7 +11,7 @@ namespace ShopGames.Services
 {
     public class ServClient
     {
-        public static async Task<List<ClientView>> Get()
+        public static async Task<List<ClientView>> SearchClients()
         {
             try
             {
@@ -35,12 +35,19 @@ namespace ShopGames.Services
             }
         }
 
-        public static async void Post(Client Cli)
+        public static async Task<ClientView> NewClient(Client Cli)
         {
             await using (var Db = new ShopGamesContext())
             {
                 await Db.Clients.AddAsync(Cli);
                 await Db.SaveChangesAsync();
+
+                return (new ClientView
+                {
+                    IdClient = Cli.IdClient,
+                    NmClient = Cli.NmClient,
+                    DtRegistration = Cli.DtRegistration
+                });
             }
         }
 

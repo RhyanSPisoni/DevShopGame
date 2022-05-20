@@ -11,7 +11,7 @@ namespace ShopGames.Services
 {
     public class ServCategory
     {
-        public async static Task<List<CategoryView>> Get()
+        public async static Task<List<CategoryView>> SearchCategories()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace ShopGames.Services
             }
         }
 
-        public static async void Post(Category cat)
+        public static async void NewCategory(Category cat)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace ShopGames.Services
             }
         }
 
-        public static async void Patch(Category cat)
+        public static async Task<CategoryView> ChangeCategory(Category cat)
         {
             try
             {
@@ -61,6 +61,12 @@ namespace ShopGames.Services
                 {
                     Db.Categories.Update(cat);
                     await Db.SaveChangesAsync();
+
+                    return (new CategoryView
+                    {
+                        IdCategory = cat.IdCategory,
+                        NmCategory = cat.NmCategory
+                    });
                 }
             }
             catch (Exception e)

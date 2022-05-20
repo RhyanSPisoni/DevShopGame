@@ -42,15 +42,15 @@ namespace ShopGames.Services
                 {
                     await Db.Products.AddAsync(prod);
                     await Db.SaveChangesAsync();
+
+                    return (new ProductView
+                    {
+                        IdProduct = prod.IdProduct,
+                        NmProduct = prod.NmProduct
+                    });
                 }
 
-                var EntV = (new ProductView
-                {
-                    IdProduct = prod.IdProduct,
-                    NmProduct = prod.NmProduct
-                });
 
-                return EntV;
 
             }
             catch (Exception e)

@@ -21,7 +21,6 @@ namespace ShopGames
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("https://192.168.1.134:5001", "https://localhost:5001");
                 });
     }
 }

@@ -14,11 +14,11 @@ namespace ShopGames.Controllers
     public class ClientController : ControllerBase
     {
         [HttpGet]
-        public Task<List<ClientView>> Get()
+        public Task<List<ClientView>> SearchClients()
         {
             try
             {
-                return Services.ServClient.Get();
+                return Services.ServClient.SearchClients();
             }
             catch (Exception e)
             {
@@ -27,11 +27,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Client Cli)
+        public Task<ClientView> NewClient([FromBody] Client Cli)
         {
             try
             {
-                Services.ServClient.Post(Cli);
+                return Services.ServClient.NewClient(Cli);
             }
             catch (Exception e)
             {
@@ -48,7 +48,6 @@ namespace ShopGames.Controllers
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
         }
