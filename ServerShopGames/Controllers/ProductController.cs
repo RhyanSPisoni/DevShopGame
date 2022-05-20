@@ -14,11 +14,11 @@ namespace ShopGames.Controllers
     public class ProductController : ControllerBase
     {
         [HttpGet]
-        public Task<List<ProductView>> Get()
+        public Task<List<ProductView>> SearchProduct()
         {
             try
             {
-                return Services.ServProduct.Get();
+                return Services.ServProduct.SearchProduct();
             }
             catch (Exception e)
             {
@@ -27,11 +27,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public Task<ProductView> Post([FromBody] Product prod)
+        public Task<ProductView> NewProduct([FromBody] Product prod)
         {
             try
             {
-                return Services.ServProduct.Post(prod);
+                return Services.ServProduct.NewProduct(prod);
             }
             catch (Exception e)
             {
@@ -40,15 +40,14 @@ namespace ShopGames.Controllers
         }
 
         [HttpPatch]
-        public void Patch([FromBody] Product prod)
+        public Task<ProductView> ChangeProduct([FromBody] Product prod)
         {
             try
             {
-                Services.ServProduct.Patch(prod);
+                return Services.ServProduct.ChangeProduct(prod);
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
         }

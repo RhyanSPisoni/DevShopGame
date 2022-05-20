@@ -14,11 +14,11 @@ namespace ShopGames.Controllers
     public class EnterpriseController : ControllerBase
     {
         [HttpGet]
-        public Task<List<EnterpriseView>> Get()
+        public Task<List<EnterpriseView>> SearchEnterprises()
         {
             try
             {
-                return Services.ServEnterprise.Get();
+                return Services.ServEnterprise.SearchEnterprises();
             }
             catch (Exception e)
             {
@@ -27,11 +27,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public Task<EnterpriseView> Post([FromBody] Enterprise Ent)
+        public Task<EnterpriseView> NewEnterprise([FromBody] Enterprise Ent)
         {
             try
             {
-                return Services.ServEnterprise.Post(Ent);
+                return Services.ServEnterprise.NewEnterprise(Ent);
             }
             catch (Exception e)
             {
@@ -40,11 +40,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPatch]
-        public void Patch([FromBody] Enterprise Ent)
+        public Task<EnterpriseView> ChangeEnterprise([FromBody] Enterprise Ent)
         {
             try
             {
-                Services.ServEnterprise.Patch(Ent);
+                return Services.ServEnterprise.ChangeEnterprise(Ent);
             }
             catch (Exception e)
             {

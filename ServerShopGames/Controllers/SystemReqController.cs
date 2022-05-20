@@ -14,11 +14,11 @@ namespace ShopGames.Controllers
     public class SystemReqController : ControllerBase
     {
         [HttpGet]
-        public Task<List<SystemReqView>> Get()
+        public Task<List<SystemReqView>> SearchSystemReq()
         {
             try
             {
-                return Services.ServSystemReq.Get();
+                return Services.ServSystemReq.SearchSystemReq();
             }
             catch (Exception e)
             {
@@ -27,11 +27,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] SystemRequirement systemReq)
+        public Task<SystemReqView> NewSystemReq([FromBody] SystemRequirement systemReq)
         {
             try
             {
-                // Services.ServSystemReq.Post(systemReq);
+                return Services.ServSystemReq.NewSystemReq(systemReq);
             }
             catch (Exception e)
             {
@@ -40,15 +40,14 @@ namespace ShopGames.Controllers
         }
 
         [HttpPatch]
-        public void Patch([FromBody] SystemRequirement systemReq)
+        public Task<SystemReqView> ChangeSystemReq([FromBody] SystemRequirement systemReq)
         {
             try
             {
-                Services.ServSystemReq.Patch(systemReq);
+                return Services.ServSystemReq.ChangeSystemReq(systemReq);
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
         }

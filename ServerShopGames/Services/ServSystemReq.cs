@@ -11,7 +11,7 @@ namespace ShopGames.Services
 {
     public class ServSystemReq
     {
-        public async static Task<List<SystemReqView>> Get()
+        public async static Task<List<SystemReqView>> SearchSystemReq()
         {
             try
             {
@@ -32,26 +32,21 @@ namespace ShopGames.Services
             }
         }
 
-        public static async Task<SystemReqView> Post(SystemRequirement prod)
+        public static async Task<SystemReqView> NewSystemReq(SystemRequirement prod)
         {
             try
             {
-                // ValidatorSystemReq.DuplicateNewRequirement(prod);
-
                 await using (var Db = new ShopGamesContext())
                 {
                     await Db.SystemRequirements.AddAsync(prod);
                     await Db.SaveChangesAsync();
+
+                    return (new SystemReqView
+                    {
+                        IdSystemRequirement = prod.IdSystemRequirement,
+                        NmRequired = prod.NmRequired
+                    });
                 }
-
-                var EntV = (new SystemReqView
-                {
-                    IdSystemRequirement = prod.IdSystemRequirement,
-                    NmRequired = prod.NmRequired
-                });
-
-                return EntV;
-
             }
             catch (Exception e)
             {
@@ -59,7 +54,7 @@ namespace ShopGames.Services
             }
         }
 
-        public static async void Patch(SystemRequirement prod)
+        public static async Task<SystemReqView> ChangeSystemReq(SystemRequirement prod)
         {
             try
             {
@@ -67,6 +62,12 @@ namespace ShopGames.Services
                 {
                     Db.SystemRequirements.Update(prod);
                     await Db.SaveChangesAsync();
+
+                    return (new SystemReqView
+                    {
+                        IdSystemRequirement = prod.IdSystemRequirement,
+                        NmRequired = prod.NmRequired
+                    });
                 }
             }
             catch (Exception e)

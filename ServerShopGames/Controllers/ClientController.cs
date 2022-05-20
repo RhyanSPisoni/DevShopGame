@@ -40,11 +40,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPatch]
-        public void Patch([FromBody] Client Cli)
+        public Task<ClientView> ChangeClient([FromBody] Client Cli)
         {
             try
             {
-                Services.ServClient.Patch(Cli);
+                return Services.ServClient.ChangeClient(Cli);
             }
             catch (Exception e)
             {

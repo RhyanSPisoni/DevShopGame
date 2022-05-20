@@ -11,7 +11,7 @@ namespace ShopGames.Services
 {
     public class ServEnterprise
     {
-        public async static Task<List<EnterpriseView>> Get()
+        public async static Task<List<EnterpriseView>> SearchEnterprises()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace ShopGames.Services
             }
         }
 
-        public static async Task<EnterpriseView> Post(Enterprise Ent)
+        public static async Task<EnterpriseView> NewEnterprise(Enterprise Ent)
         {
             try
             {
@@ -43,15 +43,14 @@ namespace ShopGames.Services
                 {
                     await Db.Enterprises.AddAsync(Ent);
                     await Db.SaveChangesAsync();
+
+                    return (new EnterpriseView
+                    {
+                        IdEnterprise = Ent.IdEnterprise,
+                        NmEnterprise = Ent.NmEnterprise
+                    });
                 }
 
-                var EntV = (new EnterpriseView
-                {
-                    IdEnterprise = Ent.IdEnterprise,
-                    NmEnterprise = Ent.NmEnterprise
-                });
-
-                return EntV;
 
             }
             catch (Exception e)
@@ -60,7 +59,7 @@ namespace ShopGames.Services
             }
         }
 
-        public static async void Patch(Enterprise Ent)
+        public static async Task<EnterpriseView> ChangeEnterprise(Enterprise Ent)
         {
             try
             {
@@ -68,6 +67,12 @@ namespace ShopGames.Services
                 {
                     Db.Enterprises.Update(Ent);
                     await Db.SaveChangesAsync();
+
+                    return (new EnterpriseView
+                    {
+                        IdEnterprise = Ent.IdEnterprise,
+                        NmEnterprise = Ent.NmEnterprise
+                    });
                 }
             }
             catch (Exception e)

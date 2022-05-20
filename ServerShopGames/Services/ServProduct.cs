@@ -11,7 +11,7 @@ namespace ShopGames.Services
 {
     public class ServProduct
     {
-        public async static Task<List<ProductView>> Get()
+        public async static Task<List<ProductView>> SearchProduct()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace ShopGames.Services
             }
         }
 
-        public static async Task<ProductView> Post(Product prod)
+        public static async Task<ProductView> NewProduct(Product prod)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace ShopGames.Services
             }
         }
 
-        public static async void Patch(Product prod)
+        public static async Task<ProductView> ChangeProduct(Product prod)
         {
             try
             {
@@ -67,6 +67,12 @@ namespace ShopGames.Services
                 {
                     Db.Products.Update(prod);
                     await Db.SaveChangesAsync();
+
+                    return (new ProductView
+                    {
+                        IdProduct = prod.IdProduct,
+                        NmProduct = prod.NmProduct
+                    });
                 }
             }
             catch (Exception e)

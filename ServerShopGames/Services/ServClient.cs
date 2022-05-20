@@ -51,14 +51,24 @@ namespace ShopGames.Services
             }
         }
 
-        public static async void Patch(Client Cli)
+        public static async Task<ClientView> ChangeClient(Client cli)
         {
             try
             {
                 await using (var Db = new ShopGamesContext())
                 {
-                    Db.Clients.Update(Cli);
+                    Db.Clients.Update(cli);
                     await Db.SaveChangesAsync();
+
+                    return (new ClientView
+                    {
+                        IdClient = cli.IdClient,
+                        NmClient = cli.NmClient,
+                        NmMail = cli.NmMail,
+                        NmNick = cli.NmNick,
+                        Active = cli.FlActive,
+                        DtRegistration = cli.DtRegistration
+                    });
                 }
             }
             catch (Exception)
