@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ShopGames.DTOs.ModelsDto;
 using ShopGames.Models;
 using ShopGames.Views;
 
@@ -11,7 +12,7 @@ namespace ShopGames.Services.Validators
 {
     public class ValidatorEnterprise
     {
-        public static void DuplicateEnterpriseNew(Enterprise Ent)
+        public static void DuplicateEnterpriseNew(EnterpriseDTO Ent)
         {
             using (var Db = new ShopGamesContext())
             {

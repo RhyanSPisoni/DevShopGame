@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using ShopGames.DTOs.ModelsDto;
 using ShopGames.Models;
 using ShopGames.Services.Validators;
 using ShopGames.Views;
@@ -32,7 +33,7 @@ namespace ShopGames.Services
             }
         }
 
-        public static async Task<ProductView> NewProduct(Product prod)
+        public static async Task<ProductView> NewProduct(ProductDTO prod)
         {
             try
             {
@@ -40,7 +41,27 @@ namespace ShopGames.Services
 
                 await using (var Db = new ShopGamesContext())
                 {
-                    await Db.Products.AddAsync(prod);
+                    await Db.Products.AddAsync(new Product
+                    {
+                        IdProduct = prod.IdProduct,
+                        DsText = prod.DsText,
+                        DtLauncher = prod.DtLauncher,
+                        FlActive = prod.FlActive,
+                        IdCategory = prod.IdCategory,
+                        IdDeveloper = prod.IdDeveloper,
+                        IdProvider = prod.IdProvider,
+                        NmProduct = prod.NmProduct,
+                        VlAvaliation = prod.VlAvaliation,
+                        VlDiscount = prod.VlDiscount,
+                        VlPrice = prod.VlPrice,
+                        VlProdcount = prod.VlProdcount,
+                        ProductSystemReqs = new List<ProductSystemReq>()
+                        {
+                            new ProductSystemReq {
+                                IdSystemRequirement = prod.ProductSystemReqs.Select( x => x.IdSystemRequirement).FirstOrDefault()
+                            }
+                        }
+                    });
                     await Db.SaveChangesAsync();
 
                     return (new ProductView
@@ -59,13 +80,33 @@ namespace ShopGames.Services
             }
         }
 
-        public static async Task<ProductView> ChangeProduct(Product prod)
+        public static async Task<ProductView> ChangeProduct(ProductDTO prod)
         {
             try
             {
                 await using (var Db = new ShopGamesContext())
                 {
-                    Db.Products.Update(prod);
+                    Db.Products.Update(new Product
+                    {
+                        IdProduct = prod.IdProduct,
+                        DsText = prod.DsText,
+                        DtLauncher = prod.DtLauncher,
+                        FlActive = prod.FlActive,
+                        IdCategory = prod.IdCategory,
+                        IdDeveloper = prod.IdDeveloper,
+                        IdProvider = prod.IdProvider,
+                        NmProduct = prod.NmProduct,
+                        VlAvaliation = prod.VlAvaliation,
+                        VlDiscount = prod.VlDiscount,
+                        VlPrice = prod.VlPrice,
+                        VlProdcount = prod.VlProdcount,
+                        ProductSystemReqs = new List<ProductSystemReq>()
+                        {
+                            new ProductSystemReq {
+                                IdSystemRequirement = prod.ProductSystemReqs.Select( x => x.IdSystemRequirement).FirstOrDefault()
+                            }
+                        }
+                    });
                     await Db.SaveChangesAsync();
 
                     return (new ProductView

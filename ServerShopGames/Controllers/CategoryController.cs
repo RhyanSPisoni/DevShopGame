@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ShopGames.DTOs.ModelsDto;
 using ShopGames.Models;
 using ShopGames.Views;
 
@@ -27,11 +28,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public void NewCategory([FromBody] Category Cat)
+        public Task<CategoryView> NewCategory([FromBody] CategoryDTO cat)
         {
             try
             {
-                Services.ServCategory.NewCategory(Cat);
+                return Services.ServCategory.NewCategory(cat);
             }
             catch (Exception e)
             {
@@ -40,11 +41,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPatch]
-        public Task<CategoryView> ChangeCategory([FromBody] Category Cat)
+        public Task<CategoryView> ChangeCategory([FromBody] CategoryDTO cat)
         {
             try
             {
-                return Services.ServCategory.ChangeCategory(Cat);
+                return Services.ServCategory.ChangeCategory(cat);
             }
             catch (Exception e)
             {

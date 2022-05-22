@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using ShopGames.DTOs.ModelsDto;
 using ShopGames.Models;
 using ShopGames.Services.Validators;
 using ShopGames.Views;
@@ -32,13 +33,19 @@ namespace ShopGames.Services
             }
         }
 
-        public static async Task<SystemReqView> NewSystemReq(SystemRequirement prod)
+        public static async Task<SystemReqView> NewSystemReq(SystemRequirementDTO prod)
         {
             try
             {
                 await using (var Db = new ShopGamesContext())
                 {
-                    await Db.SystemRequirements.AddAsync(prod);
+                    await Db.SystemRequirements.AddAsync(new SystemRequirement
+                    {
+                        FlActive = prod.FlActive,
+                        IdSystemRequirement = prod.IdSystemRequirement,
+                        NmRequired = prod.NmRequired,
+                    });
+
                     await Db.SaveChangesAsync();
 
                     return (new SystemReqView
@@ -54,13 +61,19 @@ namespace ShopGames.Services
             }
         }
 
-        public static async Task<SystemReqView> ChangeSystemReq(SystemRequirement prod)
+        public static async Task<SystemReqView> ChangeSystemReq(SystemRequirementDTO prod)
         {
             try
             {
                 await using (var Db = new ShopGamesContext())
                 {
-                    Db.SystemRequirements.Update(prod);
+                    Db.SystemRequirements.Update(new SystemRequirement
+                    {
+                        FlActive = prod.FlActive,
+                        IdSystemRequirement = prod.IdSystemRequirement,
+                        NmRequired = prod.NmRequired,
+                    });
+
                     await Db.SaveChangesAsync();
 
                     return (new SystemReqView

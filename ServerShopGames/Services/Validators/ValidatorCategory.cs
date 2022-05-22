@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using ShopGames.DTOs.ModelsDto;
 using ShopGames.Models;
 using ShopGames.Views;
 
@@ -8,13 +9,13 @@ namespace ShopGames.Services.Validators
 {
     public class ValidatorCategory
     {
-        public static void EmptyOrNullCategory(Category cat)
+        public static void ValidateEmptyOrNullCategory(CategoryDTO cat)
         {
             if (cat.NmCategory.Trim() == "" || cat.NmCategory == null)
                 throw new Exception("Insira um nome para Categoria!");
         }
 
-        public static void DuplicateCategoryNew(Category cat)
+        public static void ValidateDuplicateCategoryNew(CategoryDTO cat)
         {
             using (var Db = new ShopGamesContext())
             {

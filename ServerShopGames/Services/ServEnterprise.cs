@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using ShopGames.Models;
 using ShopGames.Views;
 using ShopGames.Services.Validators;
+using ShopGames.DTOs.ModelsDto;
 
 namespace ShopGames.Services
 {
@@ -32,22 +33,27 @@ namespace ShopGames.Services
             }
         }
 
-        public static async Task<EnterpriseView> NewEnterprise(Enterprise Ent)
+        public static async Task<EnterpriseView> NewEnterprise(EnterpriseDTO ent)
         {
             try
             {
-
-                ValidatorEnterprise.DuplicateEnterpriseNew(Ent);
+                ValidatorEnterprise.DuplicateEnterpriseNew(ent);
 
                 await using (var Db = new ShopGamesContext())
                 {
-                    await Db.Enterprises.AddAsync(Ent);
+                    await Db.Enterprises.AddAsync(new Enterprise
+                    {
+                        FlActive = ent.FlActive,
+                        IdEnterprise = ent.IdEnterprise,
+                        NmEnterprise = ent.NmEnterprise
+                    });
+
                     await Db.SaveChangesAsync();
 
                     return (new EnterpriseView
                     {
-                        IdEnterprise = Ent.IdEnterprise,
-                        NmEnterprise = Ent.NmEnterprise
+                        IdEnterprise = ent.IdEnterprise,
+                        NmEnterprise = ent.NmEnterprise
                     });
                 }
 
@@ -59,19 +65,25 @@ namespace ShopGames.Services
             }
         }
 
-        public static async Task<EnterpriseView> ChangeEnterprise(Enterprise Ent)
+        public static async Task<EnterpriseView> ChangeEnterprise(EnterpriseDTO ent)
         {
             try
             {
                 await using (var Db = new ShopGamesContext())
                 {
-                    Db.Enterprises.Update(Ent);
+                    Db.Enterprises.Update(new Enterprise
+                    {
+                        FlActive = ent.FlActive,
+                        IdEnterprise = ent.IdEnterprise,
+                        NmEnterprise = ent.NmEnterprise
+                    });
+
                     await Db.SaveChangesAsync();
 
                     return (new EnterpriseView
                     {
-                        IdEnterprise = Ent.IdEnterprise,
-                        NmEnterprise = Ent.NmEnterprise
+                        IdEnterprise = ent.IdEnterprise,
+                        NmEnterprise = ent.NmEnterprise
                     });
                 }
             }

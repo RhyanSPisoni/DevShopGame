@@ -73,3 +73,6 @@ ServerShopGames/obj/Debug/net5.0/ShopGames.RazorTargetAssemblyInfo.cache
 ServerShopGames/obj/Debug/net5.0/ref/ShopGames.dll
 ServerShopGames/obj/Debug/net5.0/refint/ShopGames.dll
 ServerShopGames/obj/Debug/net5.0/staticwebassets/ShopGames.StaticWebAssets.Manifest.cache
+ServerShopGames/.vscode/launch.json
+ServerShopGames/.vscode/tasks.json
+ServerShopGames/obj/Debug/net5.0/project.razor.json

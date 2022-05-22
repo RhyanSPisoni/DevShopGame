@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ShopGames.DTOs.ModelsDto;
 using ShopGames.Models;
 using ShopGames.Views;
 
@@ -27,11 +28,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public Task<ClientView> NewClient([FromBody] Client Cli)
+        public Task<ClientView> NewClient([FromBody] ClientDTO cli)
         {
             try
             {
-                return Services.ServClient.NewClient(Cli);
+                return Services.ServClient.NewClient(cli);
             }
             catch (Exception e)
             {
@@ -40,11 +41,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPatch]
-        public Task<ClientView> ChangeClient([FromBody] Client Cli)
+        public Task<ClientView> ChangeClient([FromBody] ClientDTO cli)
         {
             try
             {
-                return Services.ServClient.ChangeClient(Cli);
+                return Services.ServClient.ChangeClient(cli);
             }
             catch (Exception e)
             {

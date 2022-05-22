@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ShopGames.DTOs.ModelsDto;
 using ShopGames.Models;
 using ShopGames.Views;
 
@@ -27,7 +28,7 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public Task<ProductView> NewProduct([FromBody] Product prod)
+        public Task<ProductView> NewProduct([FromBody] ProductDTO prod)
         {
             try
             {
@@ -40,7 +41,7 @@ namespace ShopGames.Controllers
         }
 
         [HttpPatch]
-        public Task<ProductView> ChangeProduct([FromBody] Product prod)
+        public Task<ProductView> ChangeProduct([FromBody] ProductDTO prod)
         {
             try
             {

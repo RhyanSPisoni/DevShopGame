@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ShopGames.DTOs.ModelsDto;
 using ShopGames.Models;
 using ShopGames.Views;
 
@@ -27,11 +28,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPost]
-        public Task<EnterpriseView> NewEnterprise([FromBody] Enterprise Ent)
+        public Task<EnterpriseView> NewEnterprise([FromBody] EnterpriseDTO ent)
         {
             try
             {
-                return Services.ServEnterprise.NewEnterprise(Ent);
+                return Services.ServEnterprise.NewEnterprise(ent);
             }
             catch (Exception e)
             {
@@ -40,11 +41,11 @@ namespace ShopGames.Controllers
         }
 
         [HttpPatch]
-        public Task<EnterpriseView> ChangeEnterprise([FromBody] Enterprise Ent)
+        public Task<EnterpriseView> ChangeEnterprise([FromBody] EnterpriseDTO ent)
         {
             try
             {
-                return Services.ServEnterprise.ChangeEnterprise(Ent);
+                return Services.ServEnterprise.ChangeEnterprise(ent);
             }
             catch (Exception e)
             {
