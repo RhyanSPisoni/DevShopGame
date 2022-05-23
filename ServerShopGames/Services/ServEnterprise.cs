@@ -27,9 +27,9 @@ namespace ShopGames.Services
                     }).ToListAsync();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception($"Erro ao mostrar lista de Empresas: {e}");
+                throw new Exception($"Erro ao mostrar lista de Empresas");
             }
         }
 
@@ -59,9 +59,9 @@ namespace ShopGames.Services
 
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception($"Erro ao inserir uma Empresa: {e}");
+                throw new Exception($"Erro ao inserir uma Empresa");
             }
         }
 
@@ -87,9 +87,9 @@ namespace ShopGames.Services
                     });
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception($"Erro ao alterar uma Empresa: {e}");
+                throw new Exception($"Erro ao alterar uma Empresa");
             }
         }
     }

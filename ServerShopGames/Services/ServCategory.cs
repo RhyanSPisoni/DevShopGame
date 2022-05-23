@@ -28,9 +28,9 @@ namespace ShopGames.Services
                     }).ToListAsync();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception($"Erro ao tentar mostrar lista de Empresas: {e.Message}");
+                throw new Exception($"Erro ao tentar mostrar lista de Empresas");
             }
         }
 
@@ -43,8 +43,7 @@ namespace ShopGames.Services
 
                 await using (var Db = new ShopGamesContext())
                 {
-                    Console.WriteLine("A");
-
+                    
                     await Db.Categories.AddAsync(new Category
                     {
                         IdCategory = cat.IdCategory,
@@ -61,9 +60,9 @@ namespace ShopGames.Services
                     });
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception($"Erro ao inserir uma Categoria: {e.Message}");
+                throw new Exception($"Erro ao inserir uma Categoria");
             }
         }
 
@@ -90,9 +89,9 @@ namespace ShopGames.Services
                     });
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception($"Erro ao tentar alterar uma Categoria: {e.Message}");
+                throw new Exception($"Erro ao tentar alterar uma Categoria");
             }
         }
 

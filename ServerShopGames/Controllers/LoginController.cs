@@ -24,7 +24,7 @@ namespace ShopGames.Controllers
             {
                 return await ServLogin.LoginUser(log);
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
