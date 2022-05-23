@@ -19,7 +19,7 @@ namespace ShopGames.Models
         public string VlCpf { get; set; }
         public string NmNick { get; set; }
         public string VlPassword { get; set; }
-        public DateTime DtRegistration { get; set; }
+        public DateTime DtRegistration { get; set; } = DateTime.Now;
         public int FlActive { get; set; }
 
         public virtual ICollection<LibraryUser> LibraryUsers { get; set; }

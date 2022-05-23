@@ -24,7 +24,7 @@ namespace ShopGames.Models
         public int IdDeveloper { get; set; }
         public int IdProvider { get; set; }
         public int IdCategory { get; set; }
-        public DateTime DtLauncher { get; set; }
+        public DateTime DtLauncher { get; set; } = DateTime.Now;
         public int FlActive { get; set; }
 
         public virtual Category IdCategoryNavigation { get; set; }
