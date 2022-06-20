@@ -1,0 +1,22 @@
+{
+  "vl_Price": 0,
+  "nm_Product": "ff",
+  "vl_Discount": 0,
+  "vl_Prodcount": 0,
+  "ds_Text": "string",
+  "vl_Avaliation": 1,
+  "id_Developer": 1,
+  "id_Provider": 1,
+  "id_Category": 5,
+  "dt_Launcher": "2021-11-25T00:51:58.064Z",
+  "productSystemReq": [
+    {
+      "id_Product_System_Req": 0,
+      "id_System_Requirement": 1
+    },
+    {
+      "id_Product_System_Req": 0,
+      "id_System_Requirement": 2
+    }
+  ]
+}

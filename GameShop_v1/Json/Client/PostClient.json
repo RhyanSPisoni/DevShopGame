@@ -1,0 +1,7 @@
+{
+    "nm_Client": "string",
+    "nm_Mail": "string",
+    "vl_Cpf": "string",
+    "nm_Nick": "string",
+    "vl_Password": "string"
+}

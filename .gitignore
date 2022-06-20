@@ -76,3 +76,15 @@ ServerShopGames/obj/Debug/net5.0/staticwebassets/ShopGames.StaticWebAssets.Manif
 ServerShopGames/.vscode/launch.json
 ServerShopGames/.vscode/tasks.json
 ServerShopGames/obj/Debug/net5.0/project.razor.json
+GameShop_v1/obj/GameShop.csproj.nuget.dgspec.json
+GameShop_v1/obj/GameShop.csproj.nuget.g.props
+GameShop_v1/obj/GameShop.csproj.nuget.g.targets
+GameShop_v1/obj/project.assets.json
+GameShop_v1/obj/project.nuget.cache
+GameShop_v1/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
+GameShop_v1/obj/Debug/net5.0/GameShop.AssemblyInfo.cs
+GameShop_v1/obj/Debug/net5.0/GameShop.AssemblyInfoInputs.cache
+GameShop_v1/obj/Debug/net5.0/GameShop.assets.cache
+GameShop_v1/obj/Debug/net5.0/GameShop.csproj.AssemblyReference.cache
+GameShop_v1/obj/Debug/net5.0/GameShop.GeneratedMSBuildEditorConfig.editorconfig
+GameShop_v1/obj/Debug/net5.0/project.razor.json
